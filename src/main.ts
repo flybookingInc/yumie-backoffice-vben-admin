@@ -15,6 +15,7 @@ import { initAppConfigStore } from '@/logics/initAppConfig';
 import { router, setupRouter } from '@/router';
 import { setupRouterGuard } from '@/router/guard';
 import { setupStore } from '@/store';
+import { initFirebase } from './utils/firebase';
 
 import App from './App.vue';
 
@@ -54,6 +55,9 @@ async function bootstrap() {
   // Configure global error handling
   // 配置全局错误处理
   setupErrorHandle(app);
+
+  // Initialize Firebase
+  initFirebase();
 
   // https://next.router.vuejs.org/api/#isready
   // await router.isReady();
