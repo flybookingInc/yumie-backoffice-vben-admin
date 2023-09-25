@@ -5,34 +5,34 @@ import { t } from '/@/hooks/web/useI18n';
 import { RoleEnum } from '/@/enums/roleEnum';
 
 const dashboard: AppRouteModule = {
-  path: '/dashboard',
-  name: 'Dashboard',
+  path: '/reservations',
+  name: 'Reservations',
   component: LAYOUT,
-  redirect: '/dashboard/analysis',
+  redirect: '/reservations/list',
   meta: {
     orderNo: 10,
     icon: 'ion:grid-outline',
-    title: t('routes.dashboard.dashboard'),
-    roles: [RoleEnum.SUPERADMIN],
+    title: t('routes.reservations.reservations'),
+    roles: [RoleEnum.SUPERADMIN, RoleEnum.ADMIN],
   },
   children: [
     {
-      path: 'analysis',
-      name: 'Analysis',
+      path: 'list',
+      name: 'List',
       component: () => import('/@/views/dashboard/analysis/index.vue'),
       meta: {
         // affix: true,
-        title: t('routes.dashboard.analysis'),
-        roles: [RoleEnum.SUPERADMIN],
+        title: t('routes.reservations.list'),
+        roles: [RoleEnum.SUPERADMIN, RoleEnum.ADMIN],
       },
     },
     {
-      path: 'workbench',
-      name: 'Workbench',
+      path: 'book',
+      name: 'Book',
       component: () => import('/@/views/dashboard/workbench/index.vue'),
       meta: {
-        title: t('routes.dashboard.workbench'),
-        roles: [RoleEnum.SUPERADMIN],
+        title: t('routes.reservations.book'),
+        roles: [RoleEnum.SUPERADMIN, RoleEnum.ADMIN],
       },
     },
   ],

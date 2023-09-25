@@ -6,7 +6,7 @@ import { mainOutRoutes } from './mainOut';
 import { PageEnum } from '/@/enums/pageEnum';
 import { t } from '/@/hooks/web/useI18n';
 
-// import.meta.glob() 直接引入所有的模块 Vite 独有的功能
+// import.meta.glob() 直接引入所有的模塊 Vite 獨有的功能
 const modules = import.meta.glob('./modules/**/*.ts', { eager: true });
 const routeModuleList: AppRouteModule[] = [];
 
@@ -39,7 +39,7 @@ export const LoginRoute: AppRouteRecordRaw = {
 };
 
 // Basic routing without permission
-// 未经许可的基本路由
+// 未經許可的基本路由
 export const basicRoutes = [
   LoginRoute,
   RootRoute,

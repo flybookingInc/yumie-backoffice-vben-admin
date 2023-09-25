@@ -4,23 +4,24 @@ import type { LocaleSetting, LocaleType } from '/#/config';
 export const LOCALE: { [key: string]: LocaleType } = {
   ZH_CN: 'zh_CN',
   EN_US: 'en',
+  ZH_TW: 'zh_TW',
 };
 
 export const localeSetting: LocaleSetting = {
   showPicker: true,
   // Locale
-  locale: LOCALE.ZH_CN,
+  locale: LOCALE.ZH_TW,
   // Default locale
-  fallback: LOCALE.ZH_CN,
+  fallback: LOCALE.ZH_TW,
   // available Locales
-  availableLocales: [LOCALE.ZH_CN, LOCALE.EN_US],
+  availableLocales: [LOCALE.ZH_TW, LOCALE.EN_US],
 };
 
 // locale list
 export const localeList: DropMenu[] = [
   {
-    text: '简体中文',
-    event: LOCALE.ZH_CN,
+    text: '正體中文',
+    event: LOCALE.ZH_TW,
   },
   {
     text: 'English',

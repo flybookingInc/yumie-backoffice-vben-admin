@@ -16,6 +16,7 @@ const ROOT_PATH = RootRoute.path;
 const whitePathList: PageEnum[] = [LOGIN_PATH];
 
 export function createPermissionGuard(router: Router) {
+  console.log('enter createPermissionGuard');
   const userStore = useUserStoreWithOut();
   const permissionStore = usePermissionStoreWithOut();
   router.beforeEach(async (to, from, next) => {
@@ -90,7 +91,7 @@ export function createPermissionGuard(router: Router) {
         return;
       }
     }
-
+    console.log('permissionStore.getIsDynamicAddedRoute=', permissionStore.getIsDynamicAddedRoute);
     if (permissionStore.getIsDynamicAddedRoute) {
       next();
       return;
@@ -107,7 +108,7 @@ export function createPermissionGuard(router: Router) {
     permissionStore.setDynamicAddedRoute(true);
 
     if (to.name === PAGE_NOT_FOUND_ROUTE.name) {
-      // 动态添加路由后，此处应当重定向到fullPath，否则会加载404页面内容
+      // 動態添加路由後，此處應當重定向到fullPath，否則會加載404頁面內容
       next({ path: to.fullPath, replace: true, query: to.query });
     } else {
       const redirectPath = (from.query.redirect || to.path) as string;

@@ -16,6 +16,7 @@ import { RouteRecordRaw } from 'vue-router';
 import { PAGE_NOT_FOUND_ROUTE } from '/@/router/routes/basic';
 import { isArray } from '/@/utils/is';
 import { h } from 'vue';
+import { getCurrentUser } from '/@/utils/firebase';
 
 interface UserState {
   userInfo: Nullable<UserInfo>;
@@ -111,6 +112,7 @@ export const useUserStore = defineStore({
       } else {
         const permissionStore = usePermissionStore();
         if (!permissionStore.isDynamicAddedRoute) {
+          // Get the id and set the menu
           const routes = await permissionStore.buildRoutesAction();
           routes.forEach((route) => {
             router.addRoute(route as unknown as RouteRecordRaw);
@@ -123,11 +125,17 @@ export const useUserStore = defineStore({
       return userInfo;
     },
     async getUserInfoAction(): Promise<UserInfo | null> {
-      if (!this.getToken) return null;
-      const userInfo = await getUserInfo();
+      if (!this.getToken) {
+        console.log('token不存在');
+        return null;
+      }
+      const user = await getCurrentUser(); // wait for firebase auth to get current user.
+      if (!user) return null;
+      const userInfo = await getUserInfo(user);
       const { roles = [] } = userInfo;
       if (isArray(roles)) {
         const roleList = roles.map((item) => item.value) as RoleEnum[];
+        console.log(roleList);
         this.setRoleList(roleList);
       } else {
         userInfo.roles = [];

@@ -5,7 +5,7 @@ export default {
     errorTip: '錯誤提示',
     successTip: '成功提示',
     errorMessage: '操作失敗,系統異常!',
-    timeoutMessage: '登錄超時,請重新登錄!',
+    timeoutMessage: '登入超時,請重新登入!',
     apiTimeoutMessage: '接口請求超時,請刷新頁面重試!',
     apiRequestFailed: '請求出錯，請稍候重試',
     networkException: '網絡異常',
@@ -43,7 +43,7 @@ export default {
     enableMessage: '只在`/src/settings/projectSetting.ts` 內的useErrorHandle=true時生效.',
   },
   exception: {
-    backLogin: '返回登錄',
+    backLogin: '返回登入',
     backHome: '返回首頁',
     subTitle403: '抱歉，您無權訪問此頁面。',
     subTitle404: '抱歉，您訪問的頁面不存在。',
@@ -55,31 +55,31 @@ export default {
   lock: {
     unlock: '點擊解鎖',
     alert: '鎖屏密碼錯誤',
-    backToLogin: '返回登錄',
+    backToLogin: '返回登入',
     entry: '進入系統',
     placeholder: '請輸入鎖屏密碼或者用户密碼',
   },
   login: {
     backSignIn: '返回',
-    signInFormTitle: '登錄',
-    mobileSignInFormTitle: '手機登錄',
-    qrSignInFormTitle: '二維碼登錄',
+    signInFormTitle: '登入',
+    mobileSignInFormTitle: '手機登入',
+    qrSignInFormTitle: 'QR碼登入',
     signUpFormTitle: '註冊',
     forgetFormTitle: '重置密碼',
 
     signInTitle: '開箱即用的中後台管理系統',
     signInDesc: '輸入您的個人詳細信息開始使用！',
     policy: '我同意xxx隱私政策',
-    scanSign: `掃碼後點擊"確認"，即可完成登錄`,
+    scanSign: `掃碼後點擊"確認"，即可完成登入`,
 
-    loginButton: '登錄',
+    loginButton: '登入',
     registerButton: '註冊',
     rememberMe: '記住我',
     forgetPassword: '忘記密碼?',
-    otherSignIn: '其他登錄方式',
+    otherSignIn: '其他登入方式',
 
     // notify
-    loginSuccessTitle: '登錄成功',
+    loginSuccessTitle: '登入成功',
     loginSuccessDesc: '歡迎回來',
 
     // placeholder
